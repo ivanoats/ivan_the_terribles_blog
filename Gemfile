@@ -29,6 +29,7 @@ group :development, :test do
   gem 'pry-doc'
   gem 'pry-byebug'
   gem 'hirb'
+  gem 'metric_fu'
 end
 
 group :development do
