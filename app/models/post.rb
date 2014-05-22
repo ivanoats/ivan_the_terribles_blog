@@ -1,5 +1,4 @@
 class Post < ActiveRecord::Base
-  attr_accessible :body, :title
   has_many :comments
 
   after_commit :invalidate_all_cache_key

@@ -1,17 +1,13 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 3.2.0'
+gem 'rails', '~> 4.1.0'
 
 gem 'pg'
-
 gem 'dalli'
 
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
-end
-
+gem 'sass-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'uglifier'
 gem 'jquery-rails'
 gem 'faker'
 
@@ -20,27 +16,12 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'pry-rails'
   gem 'pry-doc'
-  gem 'pry-byebug'
+  # gem 'pry-byebug'
   gem 'hirb'
   gem 'metric_fu'
 end
 
 group :development do
-  gem 'better_errors'
-  gem 'binding_of_caller'
+  # gem 'better_errors'
+  # gem 'binding_of_caller'
 end
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
