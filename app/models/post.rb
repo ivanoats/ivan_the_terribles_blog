@@ -15,4 +15,8 @@ class Post < ActiveRecord::Base
   end
 
 
+  def comments_with_replies
+    comments.preload(:replies)
+  end
+
 end
