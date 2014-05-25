@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
 
-    @posts = Post.cached_all
+    @posts = Post.page(params[:page])
 
     respond_to do |format|
       format.html {  }

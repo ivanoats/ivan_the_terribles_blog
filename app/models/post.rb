@@ -1,11 +1,14 @@
 class Post < ActiveRecord::Base
+
+  paginates_per 25
+
   has_many :comments
   after_commit :invalidate_all_cache_key
 
   @@all_cache_key = Time.now.to_s
 
   def self.cached_all
-    Rails.cache.fetch([self, @@all_cache_key]) { self.all }
+    Rails.cache.fetch(['Post', @@all_cache_key]) { self.all }
   end
 
   def comments_with_replies

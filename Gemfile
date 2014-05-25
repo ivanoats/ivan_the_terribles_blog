@@ -4,6 +4,7 @@ gem 'rails', '~> 4.1.0'
 
 gem 'pg'
 gem 'dalli'
+gem 'kaminari'
 
 gem 'sass-rails', '~> 4.0.0'
 gem 'coffee-rails', '~> 4.0.0'
