@@ -8,6 +8,8 @@ IvanTheTerriblesBlog::Application.configure do
   config.cache_classes = false
   config.cache_store = :dalli_store
 
+  config.eager_load = false
+
 
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
