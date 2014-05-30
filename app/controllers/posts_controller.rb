@@ -1,9 +1,13 @@
 class PostsController < ApplicationController
+
+  caches_page :index
+
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
-
+ #   @posts = Post.all
+ #  eager loading applied
+    @posts = Post.includes(:comments, { :comments => :replies })
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @posts }
