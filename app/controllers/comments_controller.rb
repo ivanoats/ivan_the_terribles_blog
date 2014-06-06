@@ -2,7 +2,8 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
   def index
-    @comments = Comment.all
+    logger.info("@@@@Comments Index!")
+    @comments = Comment.all.includes(:replies)
 
     respond_to do |format|
       format.html # index.html.erb
