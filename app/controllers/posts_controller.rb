@@ -1,8 +1,14 @@
 class PostsController < ApplicationController
+  caches_page :index
+  cache_sweeper :post_sweeper
+  
+  before_filter(only: [:index]) { @page_caching = true }
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    logger.info("@@@@POST INDEX!!")
+    #@posts = Post.page(params[:page]).per_page(10)
+    @posts = Post.includes(:comments)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,6 +19,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    logger.info("@@@@Show Post")
     @post = Post.find(params[:id])
 
     respond_to do |format|
