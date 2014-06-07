@@ -1,8 +1,14 @@
 class PostsController < ApplicationController
+  caches_page :index
+  cache_sweeper :post_sweeper
+  
+  before_filter(only: [:index]) { @page_caching = true }
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    logger.info("@@@@POST INDEX!!")
+    #@posts = Post.page(params[:page]).per_page(10)
+    @posts = Post.includes(:comments)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,6 +19,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    logger.info("@@@@Show Post")
     @post = Post.find(params[:id])
 
     respond_to do |format|
@@ -44,7 +51,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to @post, notice: 'Post was successfully created.',:only_path=>true }
         format.json { render json: @post, status: :created, location: @post }
       else
         format.html { render action: "new" }
@@ -60,7 +67,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.html { redirect_to @post, notice: 'Post was successfully updated.',:only_path=>true }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -76,7 +83,7 @@ class PostsController < ApplicationController
     @post.destroy
 
     respond_to do |format|
-      format.html { redirect_to posts_url }
+      format.html { redirect_to posts_url,:only_path=>true }
       format.json { head :no_content }
     end
   end
