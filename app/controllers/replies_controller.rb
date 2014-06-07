@@ -44,7 +44,7 @@ class RepliesController < ApplicationController
 
     respond_to do |format|
       if @reply.save
-        format.html { redirect_to @reply, notice: 'Reply was successfully created.' }
+        format.html { redirect_to @reply, notice: 'Reply was successfully created.',:only_path=>true }
         format.json { render json: @reply, status: :created, location: @reply }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class RepliesController < ApplicationController
 
     respond_to do |format|
       if @reply.update_attributes(params[:reply])
-        format.html { redirect_to @reply, notice: 'Reply was successfully updated.' }
+        format.html { redirect_to @reply, notice: 'Reply was successfully updated.',:only_path=>true }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -76,7 +76,7 @@ class RepliesController < ApplicationController
     @reply.destroy
 
     respond_to do |format|
-      format.html { redirect_to replies_url }
+      format.html { redirect_to replies_url,:only_path=>true }
       format.json { head :no_content }
     end
   end

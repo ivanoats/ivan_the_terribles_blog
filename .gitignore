@@ -22,3 +22,6 @@
 .project
 __eclim_temp_Vagrantfile
 .rspec
+
+#Brakeman tells me to add this here: Session secret should not be included in version control near line 7
+/initializers/secret_token.rb
