@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.17'
+gem 'rails', '3.2.18'
 gem 'pg'
 gem 'kaminari'
 
@@ -16,6 +16,7 @@ gem 'jquery-rails'
 gem 'faker'
 
 group :development, :test do
+  gem 'brakeman', :require => false
   gem 'rspec-rails'
   gem 'pry-rails'
   gem 'pry-doc'
