@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '~> 3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -27,8 +27,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'pry-rails'
   gem 'pry-doc'
-# pry-debugger broken in ruby 2.1.0 TODO add it back in when debugger works again (usually by 2.1.x>0)
-#  gem 'pry-debugger'
   gem 'hirb'
 end
 
